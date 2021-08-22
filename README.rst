@@ -1,3 +1,11 @@
+Implementation Notes
+====================
+1. Run migrations (python manage.py migrate)
+2. Load fixtures (python manage.py loaddata ./fixtures/xword_data.json)
+
+
+
+
 Caktus Django Coding Exercise
 =============================
 
