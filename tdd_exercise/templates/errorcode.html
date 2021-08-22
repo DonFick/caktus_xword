@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+<h2>Drill</h2>
+
+    <h3>Unexpected Error</h3>
+{% if errorcode == 1 %}
+    <p>Sorry, we lost the clue. Please try with <a href="/drill">a new clue</a>.</p>
+{% endif %}
+{% if errorcode == 2 %}
+    <p>Sorry, the form submission was not valid. Please try with <a href="/drill">a new clue</a>.</p>
+{% endif %}
+
+{% endblock%}

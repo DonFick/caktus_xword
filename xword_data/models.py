@@ -1,4 +1,5 @@
 from django.db import models
+from random import randint
 
 # Create your models here.
 
@@ -26,6 +27,6 @@ class Clue(models.Model):
     clue_text = models.CharField(max_length=512,)
     theme = models.BooleanField(default=False,)
 
-    def __str__(self):
-        return '{} - {}'.format(self.entry.entry_text, self.clue_text)
-
+    # def __str__(self):
+    #     return '{} - {}'.format(self.entry.entry_text, self.clue_text)
+    #

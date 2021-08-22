@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+<h2>Drill</h2>
+
+<h3>Current Clue</h3>
+    <p><bold>{{ clue.clue_text }}</bold></p>
+    <p>{{ clue.entry.entry_text|length }} letters in this entry.</p>
+
+    {%  if message %}<p>{{ message }}</p>{% endif %}
+    <form action="/" method="Post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit">
+    </form>
+    <p><a href="/answer?clue_id={{ clue.id }}">I give up. Tell me the answer.</a></p>
+{% endblock%}
