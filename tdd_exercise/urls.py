@@ -15,14 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
 from xword_data.views import Drill, Answer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ] + [
-    url(r'^$', Drill),
-    url(r'^drill', Drill, name='xword-drill',),
-    url(r'^answer', Answer, name='xword-answer'),
+    path('drill', Drill, name='xword-drill',),
+    path('answer/<int:clue_id>', Answer, name='xword-answer'),
+    path('', Drill),
 ]
 

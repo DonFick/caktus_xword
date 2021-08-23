@@ -2,8 +2,9 @@ Implementation Notes
 ====================
 1. Run migrations (python manage.py migrate)
 2. Load fixtures (python manage.py loaddata ./fixtures/xword_data.json)
-
-
+3. Run server (docker-compose build; docker-compose up)
+4. Receive Clue at http://127.0.0.1:8801/drill (Using gunicorn on Docker)
+5. Answer view is not yet implemented
 
 
 Caktus Django Coding Exercise

@@ -9,7 +9,7 @@ def get_random_clue():
     # we want a reasonably efficient way to select a random record
     # without pulling them all from the database in a large queryset
     # and we don't want to clobber the server with .order_by('?').first()
-    # the dataset is non-volatile so we can us the primary key
+    # The dataset is non-volatile so we can us the primary key
     # but just in case we have some gaps, we can loop until we hit a good record
     max_id = Clue.objects.all().aggregate(max_id=Max('id'))['max_id']
     while True:
@@ -40,9 +40,9 @@ def Drill(request):
                 context['clue'] = clue
                 if guess == clue.entry.entry_text:
                    message = 'Success. That is the correct entry.'
-                   return HttpResponseRedirect('/answer')
+                   return HttpResponseRedirect('/answer/{id}'.format(id=clue.id))
                 else:
-                    context['message'] = 'Sorry, answer again.'
+                    context['message'] = 'Sorry, not correct, try again.'
                     return render(request, 'drill.html', context)
 
         else:
@@ -62,10 +62,12 @@ def Drill(request):
             'clue_count':clue_count,
             'guess_count': guess_count,
             'clue': clue,
+            'clue_id': clue.id,
         }
 
         return render(request, 'drill.html', context)
 
-def Answer(request):
+def Answer(request, clue_id):
+    # This is a stub.
     context={}
     return render(request, 'answer.html', context)

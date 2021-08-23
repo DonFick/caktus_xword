@@ -5,7 +5,7 @@
 
 <h3>Current Clue</h3>
     <p><bold>{{ clue.clue_text }}</bold></p>
-    <p>{{ clue.entry.entry_text|length }} letters in this entry.</p>
+    <p>{{ clue.entry.entry_text|length }} letters in this entry. {{ clue.entry.entry_text}}</p>
 
     {%  if message %}<p>{{ message }}</p>{% endif %}
     <form action="/" method="Post">
@@ -13,5 +13,5 @@
         {{form}}
         <input type="submit">
     </form>
-    <p><a href="/answer?clue_id={{ clue.id }}">I give up. Tell me the answer.</a></p>
+    <p><a href="/answer/{{ clue.id }}">I give up. Tell me the answer.</a></p>
 {% endblock%}
